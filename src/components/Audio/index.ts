@@ -1,1 +1,1 @@
-export { AudioDetector } from './AudioDetector';
+// Audio components - placeholder

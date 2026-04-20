@@ -65,7 +65,7 @@ export function NoteFindingGame() {
         question: currentQuestion!,
         correct: true,
         responseTime,
-        detectedNote,
+        detectedNote: detectedNote || undefined,
         timestamp: Date.now(),
       });
       
