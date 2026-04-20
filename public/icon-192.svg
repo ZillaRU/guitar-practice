@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+  <rect width="192" height="192" rx="24" fill="#fef7ed"/>
+  <g transform="translate(24, 36)">
+    <!-- 简化的吉他指板 -->
+    <rect x="0" y="0" width="144" height="120" rx="8" fill="#d97706" opacity="0.2"/>
+    <!-- 品丝 -->
+    <line x1="24" y1="0" x2="24" y2="120" stroke="#b45309" stroke-width="2"/>
+    <line x1="48" y1="0" x2="48" y2="120" stroke="#b45309" stroke-width="2"/>
+    <line x1="72" y1="0" x2="72" y2="120" stroke="#b45309" stroke-width="2"/>
+    <line x1="96" y1="0" x2="96" y2="120" stroke="#b45309" stroke-width="2"/>
+    <line x1="120" y1="0" x2="120" y2="120" stroke="#b45309" stroke-width="2"/>
+    <!-- 弦 -->
+    <line x1="0" y1="20" x2="144" y2="20" stroke="#78716c" stroke-width="1"/>
+    <line x1="0" y1="40" x2="144" y2="40" stroke="#78716c" stroke-width="1"/>
+    <line x1="0" y1="60" x2="144" y2="60" stroke="#78716c" stroke-width="1.5"/>
+    <line x1="0" y1="80" x2="144" y2="80" stroke="#78716c" stroke-width="2"/>
+    <line x1="0" y1="100" x2="144" y2="100" stroke="#78716c" stroke-width="2.5"/>
+    <!-- 品位标记 -->
+    <circle cx="60" cy="10" r="4" fill="#b45309"/>
+    <circle cx="108" cy="10" r="4" fill="#b45309"/>
+  </g>
+</svg>

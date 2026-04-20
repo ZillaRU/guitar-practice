@@ -1,0 +1,1 @@
+export { AudioDetector } from './AudioDetector';
