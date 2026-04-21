@@ -1,22 +1,23 @@
 import { useState } from 'react';
 import { useGameStore } from './store/gameStore';
-import { NoteFindingGame, ScalePractice, IntervalPractice, ChordPractice } from './components/Game';
+import { NoteFindingGame, ScalePractice, IntervalPractice, ChordPractice, DailyLick } from './components/Game';
 import { StatsPanel } from './components/Stats';
 import type { Difficulty } from './types';
 
-type PracticeMode = 'note-finding' | 'scale' | 'interval' | 'chord';
+type PracticeMode = 'note-finding' | 'scale' | 'interval' | 'chord' | 'daily-lick';
 type Tab = 'practice' | 'stats';
 
 const PRACTICE_MODES: { id: PracticeMode; label: string; icon: string; desc: string }[] = [
+  { id: 'daily-lick', label: '每日乐句', icon: '🎸', desc: '每天一条经典乐句' },
   { id: 'note-finding', label: '音符定位', icon: '🎯', desc: '找到指板上的音符' },
   { id: 'scale', label: '音阶练习', icon: '🎵', desc: '练习各种音阶' },
   { id: 'interval', label: '音程训练', icon: '📐', desc: '三度音与音程关系' },
-  { id: 'chord', label: '和弦构造', icon: '🎸', desc: '学习和弦组成' },
+  { id: 'chord', label: '和弦构造', icon: '🎼', desc: '学习和弦组成' },
 ];
 
 function App() {
   const [activeTab, setActiveTab] = useState<Tab>('practice');
-  const [practiceMode, setPracticeMode] = useState<PracticeMode>('note-finding');
+  const [practiceMode, setPracticeMode] = useState<PracticeMode>('daily-lick');
   const { difficulty, setDifficulty } = useGameStore();
 
   return (
@@ -38,7 +39,7 @@ function App() {
         {/* 练习模式选择 */}
         {activeTab === 'practice' && (
           <div className="mb-6">
-            <div className="grid grid-cols-4 gap-2">
+            <div className="grid grid-cols-5 gap-2">
               {PRACTICE_MODES.map((mode) => (
                 <button
                   key={mode.id}
@@ -61,25 +62,27 @@ function App() {
           </div>
         )}
 
-        {/* 难度选择 */}
-        <div className="mb-6">
-          <div className="flex gap-2">
-            {(['beginner', 'intermediate', 'advanced'] as Difficulty[]).map((d) => (
-              <button
-                key={d}
-                onClick={() => setDifficulty(d)}
-                className={`
-                  px-4 py-2 rounded-lg text-sm font-medium transition-all
-                  ${difficulty === d 
-                    ? 'bg-amber-600 text-white shadow-sm' 
-                    : 'bg-white text-gray-600 hover:bg-amber-50'}
-                `}
-              >
-                {d === 'beginner' ? '初级' : d === 'intermediate' ? '中级' : '高级'}
-              </button>
-            ))}
+        {/* 难度选择（某些模式不显示） */}
+        {activeTab === 'practice' && practiceMode !== 'daily-lick' && (
+          <div className="mb-6">
+            <div className="flex gap-2">
+              {(['beginner', 'intermediate', 'advanced'] as Difficulty[]).map((d) => (
+                <button
+                  key={d}
+                  onClick={() => setDifficulty(d)}
+                  className={`
+                    px-4 py-2 rounded-lg text-sm font-medium transition-all
+                    ${difficulty === d 
+                      ? 'bg-amber-600 text-white shadow-sm' 
+                      : 'bg-white text-gray-600 hover:bg-amber-50'}
+                  `}
+                >
+                  {d === 'beginner' ? '初级' : d === 'intermediate' ? '中级' : '高级'}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* 标签页 */}
         <div className="flex border-b border-amber-200 mb-6">
@@ -109,6 +112,7 @@ function App() {
             {practiceMode === 'scale' && <ScalePractice />}
             {practiceMode === 'interval' && <IntervalPractice />}
             {practiceMode === 'chord' && <ChordPractice />}
+            {practiceMode === 'daily-lick' && <DailyLick />}
           </>
         )}
         
