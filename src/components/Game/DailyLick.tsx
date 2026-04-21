@@ -116,6 +116,47 @@ export function DailyLick() {
           <span>建议练习时间</span>
           <span className="font-medium text-amber-700">{lick.practiceTime} 分钟</span>
         </div>
+
+        {/* 来源信息 */}
+        {(lick.album || lick.year || lick.tutorialUrl || lick.songUrl) && (
+          <div className="mt-4 pt-4 border-t border-gray-100">
+            <div className="text-sm text-gray-500 mb-2">📚 参考资源</div>
+            <div className="space-y-2">
+              {lick.album && lick.year && (
+                <div className="text-sm text-gray-600">
+                  专辑: <span className="font-medium">{lick.album}</span> ({lick.year})
+                </div>
+              )}
+              {lick.tabSource && (
+                <div className="text-sm text-gray-600">
+                  Tab来源: {lick.tabSource}
+                </div>
+              )}
+              <div className="flex gap-3 mt-2">
+                {lick.tutorialUrl && (
+                  <a
+                    href={lick.tutorialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 px-3 py-1.5 bg-red-50 text-red-600 rounded-lg text-sm hover:bg-red-100 transition-colors"
+                  >
+                    📺 教程视频
+                  </a>
+                )}
+                {lick.songUrl && (
+                  <a
+                    href={lick.songUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 px-3 py-1.5 bg-green-50 text-green-600 rounded-lg text-sm hover:bg-green-100 transition-colors"
+                  >
+                    🎵 原曲试听
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* 浏览更多乐句 */}
@@ -160,9 +201,36 @@ export function DailyLick() {
 {item.tab}
                       </pre>
                     </div>
-                    <div className="mt-3 text-xs text-gray-500">
-                      练习时间: {item.practiceTime}分钟
+                    <div className="mt-3 flex items-center justify-between text-xs text-gray-500">
+                      <span>练习时间: {item.practiceTime}分钟</span>
+                      <div className="flex gap-2">
+                        {item.tutorialUrl && (
+                          <a
+                            href={item.tutorialUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-red-500 hover:underline"
+                          >
+                            📺 教程
+                          </a>
+                        )}
+                        {item.songUrl && (
+                          <a
+                            href={item.songUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-green-500 hover:underline"
+                          >
+                            🎵 原曲
+                          </a>
+                        )}
+                      </div>
                     </div>
+                    {item.album && item.year && (
+                      <div className="mt-1 text-xs text-gray-400">
+                        {item.album} ({item.year})
+                      </div>
+                    )}
                   </div>
                 )}
               </div>

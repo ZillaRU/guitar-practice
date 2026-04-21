@@ -13,7 +13,12 @@ export interface GuitarLick {
   tab: string; // Tab格式
   tips: string[];
   practiceTime: number; // 建议练习时间（分钟）
-  videoUrl?: string;
+  // 来源信息
+  album?: string; // 专辑名
+  year?: number; // 发行年份
+  tutorialUrl?: string; // 教程视频链接
+  songUrl?: string; // 原曲试听链接
+  tabSource?: string; // Tab来源
 }
 
 export const LICKS_LIBRARY: GuitarLick[] = [
@@ -42,6 +47,12 @@ E|---------------------------|
       '建议BPM：80-100'
     ],
     practiceTime: 10,
+    // 来源信息
+    album: 'Machine Head',
+    year: 1972,
+    tutorialUrl: 'https://www.youtube.com/results?search_query=smoke+on+the+water+guitar+lesson',
+    songUrl: 'https://open.spotify.com/track/5ecHxVvmDbSavYqYasmLXl',
+    tabSource: '经典简化版Tab',
   },
   {
     id: 'seven-nation-army',
@@ -67,6 +78,11 @@ E|--7--7--10--7--5--3--2-----------|
       '建议BPM：120'
     ],
     practiceTime: 10,
+    album: 'Elephant',
+    year: 2003,
+    tutorialUrl: 'https://www.youtube.com/results?search_query=seven+nation+army+guitar+lesson',
+    songUrl: 'https://open.spotify.com/track/3k3mNHfm2woYM5GVLxPwSK',
+    tabSource: '标准调弦版（原曲为低音效果）',
   },
   {
     id: 'iron-man',
@@ -524,6 +540,11 @@ Bm - F# - A - E - G - D - Em - F#
       '建议BPM：75'
     ],
     practiceTime: 30,
+    album: 'Hotel California',
+    year: 1976,
+    tutorialUrl: 'https://www.youtube.com/results?search_query=hotel+california+guitar+lesson+solo',
+    songUrl: 'https://open.spotify.com/track/40DsgZ903vQOrDoz3I8pLs',
+    tabSource: '和弦进行与旋律简化版',
   },
   {
     id: 'stairway-to-heaven-intro',
@@ -551,6 +572,11 @@ Am              Am/G            Am/F#           Am/F
       '这是慢速练习的绝佳素材'
     ],
     practiceTime: 40,
+    album: 'Led Zeppelin IV',
+    year: 1971,
+    tutorialUrl: 'https://www.youtube.com/results?search_query=stairway+to+heaven+intro+guitar+lesson',
+    songUrl: 'https://open.spotify.com/track/5CQ30WqJomci4loLG5itCap',
+    tabSource: '经典指弹版本',
   },
   {
     id: 'sweet-child-o-mine-intro',
@@ -608,6 +634,11 @@ G|-------------------------9--7h9p7--9b11r9--7~~~~------------------|
       'Gilmour风格：让吉他像人声一样歌唱'
     ],
     practiceTime: 45,
+    album: 'The Wall',
+    year: 1979,
+    tutorialUrl: 'https://www.youtube.com/results?search_query=comfortably+numb+solo+guitar+lesson',
+    songUrl: 'https://open.spotify.com/track/4w9poOvpS2JvQeRb4S8YjY',
+    tabSource: 'David Gilmour经典Solo',
   },
   {
     id: 'november-rain-solo',
@@ -638,6 +669,11 @@ G|-----------------------------------------------------------------|
       '这是典型的"build up"结构'
     ],
     practiceTime: 50,
+    album: 'Use Your Illusion I',
+    year: 1991,
+    tutorialUrl: 'https://www.youtube.com/results?search_query=november+rain+solo+guitar+lesson',
+    songUrl: 'https://open.spotify.com/track/1gQu6MTPJ1M4YqZmGxRgEL',
+    tabSource: 'Slash标志性的情感Solo',
   },
   {
     id: 'free-bird-opening',
@@ -725,6 +761,11 @@ E|--7--7--7--7--------------------------|
       '建议BPM：120'
     ],
     practiceTime: 25,
+    album: 'Metallica (Black Album)',
+    year: 1991,
+    tutorialUrl: 'https://www.youtube.com/results?search_query=enter+sandman+guitar+lesson',
+    songUrl: 'https://open.spotify.com/track/4jXfCibeBx4Kicsn9MiCsx',
+    tabSource: 'James Hetfield标志性Riff',
   },
   {
     id: 'nothing-else-matters-intro',
@@ -892,6 +933,11 @@ Em           G           Am         Bm
       '这是学习R&B吉他风格的好素材'
     ],
     practiceTime: 40,
+    album: 'Axis: Bold as Love',
+    year: 1967,
+    tutorialUrl: 'https://www.youtube.com/results?search_query=little+wing+guitar+lesson',
+    songUrl: 'https://open.spotify.com/track/4MwVodtdRlYIOTm4IbmTPK',
+    tabSource: 'Jimi Hendrix经典和弦旋律',
   },
   {
     id: 'all-along-watchtower-solo',
@@ -975,6 +1021,11 @@ B|--0--0--0--0--0--0--0--0--0--0--0--0--0----------------------------|
       '拇指拨低音，其他手指弹高音'
     ],
     practiceTime: 30,
+    album: 'Texas Flood',
+    year: 1983,
+    tutorialUrl: 'https://www.youtube.com/results?search_query=pride+and+joy+guitar+lesson',
+    songUrl: 'https://open.spotify.com/track/6VwQOUK5QgcYGSlE6PSyDT',
+    tabSource: 'Stevie Ray Vaughan德州布鲁斯',
   },
   {
     id: 'crossroads-solo',
@@ -1117,6 +1168,11 @@ E|-------------------------------------------------------------------|
       'Eddie Van Halen开创了这个时代'
     ],
     practiceTime: 40,
+    album: 'Van Halen',
+    year: 1978,
+    tutorialUrl: 'https://www.youtube.com/results?search_query=eruption+van+halen+guitar+lesson',
+    songUrl: 'https://open.spotify.com/track/3ngUAtF3GZURv4DcY4WHMe',
+    tabSource: 'Eddie Van Halen点弦经典',
   },
   {
     id: 'sultans-of-swing-solo',
